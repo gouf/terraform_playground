@@ -17,6 +17,10 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
+output "EC2_public_ip" {
+  value = "${aws_instance.example.public_ip}"
+}
+
 resource "aws_eip" "example_eip" {
   instance = "${aws_instance.example.id}"
   vpc      = true
